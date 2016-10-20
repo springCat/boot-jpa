@@ -1,0 +1,50 @@
+
+port: 8080
+context-path: /
+
+#logging:
+#    level:
+#        tk.mybatis: DEBUG
+
+spring:
+    datasource:
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://127.0.0.1:3306/sso
+        username: root
+        password: 260126012601
+        # 使用druid数据源
+        type: com.alibaba.druid.pool.DruidDataSource
+        jmx-enabled: true
+    jpa:
+        database: MYSQL
+        hibernate:
+            ddl-auto: none
+            show-sql: true
+            naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+        properties:
+            hibernate:
+                dialect: org.hibernate.dialect.MySQL5Dialect
+    redis:
+        database: 4
+        host: 127.0.0.1
+        password:
+        port: 6379
+        timeout: 0
+        pool:
+            max-active: 8
+            max-idle: 8
+            max-wait: -1
+            min-idle: 0
+
+flyway:
+    enabled: false
+
+druid:
+    filters: stat,wall,log4j
+    path: /druid/*
+    loginUsername: springcat
+    loginPassword: 123456
+    allow:
+    deny:
+    resetEnable: true
+
